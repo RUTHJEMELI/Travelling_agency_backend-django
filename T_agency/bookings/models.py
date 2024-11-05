@@ -49,9 +49,13 @@ class Booking(models.Model):
     
     destination_city = models.CharField(max_length=25, blank=False, verbose_name=_('To'))
     starting_city = models.CharField(max_length=25, blank=False, verbose_name=_('From'))
-    client = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='bookings', verbose_name=_('Client'), blank=False)
+    # client = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='bookings', verbose_name=_('Client'), blank=False)
     created_at = models.DateField(auto_now_add=True)
     isComplete = models.BooleanField(default=False)
+    name =models.CharField(blank=False, max_length=25, default='client')
+    email = models.EmailField(max_length=30, blank=False, verbose_name=_('email'), default='email')
+
+    
 
 
 

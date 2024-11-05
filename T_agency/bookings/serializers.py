@@ -49,14 +49,14 @@ class LoginSerializer(serializers.Serializer):
 
 
 class BookingSerializer(serializers.ModelSerializer):
-    client = serializers.PrimaryKeyRelatedField( read_only =True)
+    # client = serializers.PrimaryKeyRelatedField( read_only =True)
     created_at = serializers.DateTimeField(read_only =True)
     isComplete = serializers.BooleanField(read_only = True)
 
     class Meta:
         model = Booking
-        fields = ['destination_city','starting_city', 'client', 'created_at', 'isComplete']
-
+        fields = ['destination_city','starting_city', 'created_at','name', 'isComplete', 'id']
+ 
 
     
     

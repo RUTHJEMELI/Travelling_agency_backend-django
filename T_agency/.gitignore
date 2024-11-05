@@ -1,0 +1,38 @@
+# Python
+*.pyc
+*.pyo
+__pycache__/
+*.pyd
+
+# Django
+*.log
+db.sqlite3
+/media
+/staticfiles
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.coverage
+*.cover
+*.egg-info
+dist
+build
+*.egg
+*.env
+*.venv
+.venv/
+venv/
+ENV/
+env/
+*.local
+*.ini
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+
+# OS generated files
+.DS_Store
+Thumbs.db
