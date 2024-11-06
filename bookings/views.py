@@ -129,14 +129,14 @@ class CreateAppointmentView(generics.ListCreateAPIView):
             f"Email: {request.data.get('email')}\n"
 
 
-            f"Phone number: {request.data.get('phone_number')}\n"
-            f"Destination: {request.data.get('destination_city')}\n"
-            f"From: {request.data.get('starting_city')}\n"
-            f"Booking ID: {Booking.id}"
+            f"Phone number: {request.data.get('phone_number')}\n\n"
+            f"Destination: {request.data.get('destination_city')}\n\n"
+            f"From: {request.data.get('starting_city')}\n\n"
+            f"Ticket No: {serializer.get('id')}"
         )
         send_mail(
             subject, message, settings.DEFAULT_FROM_EMAIL,
-            ['mutaikiptanui@gmail.com'], fail_silently=False
+            ['info@opendoorstravelling.com'], fail_silently=False
         )
         
         return Response({'message': 'Appointment booked successfully'}, status=status.HTTP_201_CREATED)
