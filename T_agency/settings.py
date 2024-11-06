@@ -83,7 +83,10 @@ CORS_ALLOWED_ORIGINS = [
     # Add any other origins you want to allow
 ]
 
-ALLOWED_HOSTS = ["https://travelling-agency-backend-django-2.onrender.com", "https://travelling-1.onrender.com",]
+ALLOWED_HOSTS = ["https://travelling-agency-backend-django-2.onrender.com", 
+                 "https://travelling-1.onrender.com",
+                 "travelling-agency-backend-django-2.onrender.com",
+                 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES':(
