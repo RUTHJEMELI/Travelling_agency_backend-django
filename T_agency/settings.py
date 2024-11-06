@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-v$-)8wmxruql-!6alxwlnu%j&(9&%!y08q^vjgo0i6@4-rxi^%
 DEBUG = True
 RAPIDAPI_KEY = config('RAPIDAPI_KEY')
 
-ALLOWED_HOSTS = []
+
 
 
 
