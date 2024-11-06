@@ -132,7 +132,8 @@ class CreateAppointmentView(generics.ListCreateAPIView):
             f"Phone number: {request.data.get('phone_number')}\n\n"
             f"Destination: {request.data.get('destination_city')}\n\n"
             f"From: {request.data.get('starting_city')}\n\n"
-            f"Ticket No: {serializer.get('id')}"
+            f"Ticket No: {serializer.validated_data['id']}"
+
         )
         send_mail(
             subject, message, settings.DEFAULT_FROM_EMAIL,
