@@ -13,5 +13,5 @@ class CustomUserAdmin(admin.ModelAdmin):
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
     list_display = ('starting_city','destination_city', 'name', 'email', 'created_at')
-    search_fields = ('client',)
+    search_fields = ('name',)
     fields = ('start', 'destination', 'name', 'travel_date', 'created_at')
