@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
-from decouple import  config
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,15 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-v$-)8wmxruql-!6alxwlnu%j&(9&%!y08q^vjgo0i6@4-rxi^%'
 
-# SECURITY WARNING: don't run with debug turned on in production!cls
+# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 RAPIDAPI_KEY = config('RAPIDAPI_KEY')
 
 
-
-
-
-
+# Email configuration
 EMAIL_BACKEND = config('EMAIL_BACKEND')
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT', cast=int)
@@ -40,7 +37,6 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
-
 
 
 # Application definition
@@ -70,33 +66,48 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # Make sure this is before CommonMiddleware
     'django.middleware.common.CommonMiddleware',
 ]
+
+# CORS settings
 CORS_ALLOW_CREDENTIALS = True
 CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken']
-CORS_ALLOW_ALL_ORIGINS = True  # This allows all origins, use with caution in production
-
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "https://travelling-1.onrender.com",
-    # Add any other origins you want to allow
+    "http://localhost:3000",  # For local development
+    "https://travelling-1.onrender.com",  # For deployed frontend
 ]
 
-ALLOWED_HOSTS = ["https://travelling-agency-backend-django-2.onrender.com", 
-                 "https://travelling-1.onrender.com",
-                 "travelling-agency-backend-django-2.onrender.com",
-                 ]
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
+    'PUT',
+    'PATCH',
+    'DELETE',
+    'OPTIONS',
+]
+
+CORS_ALLOW_HEADERS = [
+    'content-type',
+    'authorization',
+    'accept',
+    'x-requested-with',
+    'x-csrftoken',
+]
+
+ALLOWED_HOSTS = [
+    "https://travelling-agency-backend-django-2.onrender.com",
+    "https://travelling-1.onrender.com",
+    "travelling-agency-backend-django-2.onrender.com",
+]
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES':(
+    'DEFAULT_AUTHENTICATION_CLASSES': (
         'bookings.authentication.CustomJWTAuthentication',
-
     ),
-    'DEFAULT_PERMISSION_CLASSES':[
+    'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
-        'rest_framework.permissions.AllowAny',
-
+        'rest_framework.permissions.AllowAny',  # Modify this based on your needs
     ]
 }
 
@@ -105,7 +116,7 @@ SIMPLE_JWT = {
     'AUTH_COOKIE_SECURE': False,    # Set this to True in production to ensure cookies are only sent over HTTPS
     'AUTH_COOKIE_HTTP_ONLY': True,  # Prevents JavaScript access to the cookie (HTTP-only)
     'AUTH_COOKIE_PATH': '/',        # Path for which the cookie is valid
-    'AUTH_COOKIE_SAMESITE': 'Lax',  # Adjust this based on 
+    'AUTH_COOKIE_SAMESITE': 'Lax',  # Adjust this based on your requirements
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=180),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
     'SLIDING_TOKEN_LIFETIME': timedelta(days=30),
@@ -139,7 +150,7 @@ WSGI_APPLICATION = 'T_agency.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',  # Change this for production to use PostgreSQL or MySQL
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
@@ -162,6 +173,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 AUTHENTICATION_BACKENDS = [
     'bookings.backends.EmailBackend',  # Your custom backend
     'django.contrib.auth.backends.ModelBackend',  # Default backend
