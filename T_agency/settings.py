@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-v$-)8wmxruql-!6alxwlnu%j&(9&%!y08q^vjgo0i6@4-rxi^%'
 
 # SECURITY WARNING: don't run with debug turned on in production!cls
-DEBUG = True
+DEBUG = False
 RAPIDAPI_KEY = config('RAPIDAPI_KEY')
 
 

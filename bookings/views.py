@@ -120,6 +120,7 @@ class CreateAppointmentView(generics.ListCreateAPIView):
 
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+        booking = serializer.save()
         
 
         # Send email notification to admin
@@ -132,7 +133,7 @@ class CreateAppointmentView(generics.ListCreateAPIView):
             f"Phone number: {request.data.get('phone_number')}\n\n"
             f"Destination: {request.data.get('destination_city')}\n\n"
             f"From: {request.data.get('starting_city')}\n\n"
-            f"Ticket No: {Booking.id}"
+            f"Ticket No: {booking.id}"
         )
         send_mail(
             subject, message, settings.DEFAULT_FROM_EMAIL,
@@ -141,13 +142,13 @@ class CreateAppointmentView(generics.ListCreateAPIView):
         
         return Response({'message': 'Appointment booked successfully'}, status=status.HTTP_201_CREATED)
 
-    def get(self, request, *args, **kwargs):
-        my_bookings = self.queryset.filter(client=request.user)
-        serializer = self.get_serializer(my_bookings, many=True)
+    # def get(self, request, *args, **kwargs):
+    #     my_bookings = self.queryset.filter(client=request.user)
+    #     serializer = self.get_serializer(my_bookings, many=True)
         
-        if my_bookings.exists():
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response({'message': 'No appointments found.'}, status=status.HTTP_204_NO_CONTENT)
+    #     if my_bookings.exists():
+    #         return Response(serializer.data, status=status.HTTP_200_OK)
+    #     return Response({'message': 'No appointments found.'}, status=status.HTTP_204_NO_CONTENT)
 
 create_appointment_view = CreateAppointmentView.as_view()
 
