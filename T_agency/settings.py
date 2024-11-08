@@ -78,7 +78,8 @@ CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken']
 CORS_ALLOWED_ORIGINS = [
     "https://travelling-1.onrender.com",  # Add https://
     "https://travelling-agency-backend-django-1.onrender.com",  # Add https://
-    "https://travelling-agency-backend-django-2.onrender.com",  # Add https://
+    "https://travelling-agency-backend-django-2.onrender.com", 
+     'https://www.opendoorstravelling.com' # Add https://
 ]
                 # For deployed frontend
         # For deployed frontend
