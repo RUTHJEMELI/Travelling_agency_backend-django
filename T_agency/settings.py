@@ -76,15 +76,13 @@ MIDDLEWARE = [
 CORS_ALLOW_CREDENTIALS = True
 CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken']
 CORS_ALLOWED_ORIGINS = [
-   "https://travelling-agency-backend-django-1.onrender.com",
-    "https://travelling-agency-backend-django-2.onrender.com",
-    "https://travelling-1.onrender.com",
-    "travelling-agency-backend-django-1.onrender.com",  # Add this line
-    "travelling-agency-backend-django-2.onrender.com",
-    "travelling-1.onrender.com",
-    'https://www.opendoorstravelling.com', # For deployed frontend
-        # For deployed frontend
+    "https://travelling-1.onrender.com",  # Add https://
+    "https://travelling-agency-backend-django-1.onrender.com",  # Add https://
+    "https://travelling-agency-backend-django-2.onrender.com",  # Add https://
 ]
+                # For deployed frontend
+        # For deployed frontend
+
 
 CORS_ALLOW_METHODS = [
     'GET',
@@ -110,7 +108,7 @@ ALLOWED_HOSTS = [
     "travelling-agency-backend-django-1.onrender.com",  # Add this line
     "travelling-agency-backend-django-2.onrender.com",
     "travelling-1.onrender.com",
-    'https://www.opendoorstravelling.com',
+    'https://www.opendoorstravelling.com'
 ]
 
 REST_FRAMEWORK = {
