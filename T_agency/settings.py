@@ -81,7 +81,8 @@ CORS_ALLOWED_ORIGINS = [
     "https://travelling-1.onrender.com",
     "travelling-agency-backend-django-1.onrender.com",  # Add this line
     "travelling-agency-backend-django-2.onrender.com",
-    "travelling-1.onrender.com", # For deployed frontend
+    "travelling-1.onrender.com",
+    'https://www.opendoorstravelling.com', # For deployed frontend
         # For deployed frontend
 ]
 
@@ -109,6 +110,7 @@ ALLOWED_HOSTS = [
     "travelling-agency-backend-django-1.onrender.com",  # Add this line
     "travelling-agency-backend-django-2.onrender.com",
     "travelling-1.onrender.com",
+    'https://www.opendoorstravelling.com',
 ]
 
 REST_FRAMEWORK = {
