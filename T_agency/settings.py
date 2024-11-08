@@ -76,9 +76,12 @@ MIDDLEWARE = [
 CORS_ALLOW_CREDENTIALS = True
 CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken']
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # For local development
+   "https://travelling-agency-backend-django-1.onrender.com",
+    "https://travelling-agency-backend-django-2.onrender.com",
     "https://travelling-1.onrender.com",
-    "travelling-1.onrender.com",  # For deployed frontend
+    "travelling-agency-backend-django-1.onrender.com",  # Add this line
+    "travelling-agency-backend-django-2.onrender.com",
+    "travelling-1.onrender.com", # For deployed frontend
         # For deployed frontend
 ]
 
@@ -101,8 +104,11 @@ CORS_ALLOW_HEADERS = [
 
 ALLOWED_HOSTS = [
     "https://travelling-agency-backend-django-1.onrender.com",
+    "https://travelling-agency-backend-django-2.onrender.com",
     "https://travelling-1.onrender.com",
-    "travelling-agency-backend-django-1.onrender.com",
+    "travelling-agency-backend-django-1.onrender.com",  # Add this line
+    "travelling-agency-backend-django-2.onrender.com",
+    "travelling-1.onrender.com",
 ]
 
 REST_FRAMEWORK = {
