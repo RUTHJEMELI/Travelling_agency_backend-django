@@ -77,7 +77,9 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken']
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # For local development
-    "https://travelling-1.onrender.com",  # For deployed frontend
+    "https://travelling-1.onrender.com",
+    "travelling-1.onrender.com",  # For deployed frontend
+        # For deployed frontend
 ]
 
 CORS_ALLOW_METHODS = [
