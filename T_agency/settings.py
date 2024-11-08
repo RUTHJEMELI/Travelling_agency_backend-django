@@ -100,9 +100,9 @@ CORS_ALLOW_HEADERS = [
 ]
 
 ALLOWED_HOSTS = [
-    "https://travelling-agency-backend-django-2.onrender.com",
+    "https://travelling-agency-backend-django-1.onrender.com",
     "https://travelling-1.onrender.com",
-    "travelling-agency-backend-django-2.onrender.com",
+    "travelling-agency-backend-django-1.onrender.com",
 ]
 
 REST_FRAMEWORK = {
